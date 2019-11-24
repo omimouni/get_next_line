@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:16:59 by omimouni          #+#    #+#             */
-/*   Updated: 2019/11/24 03:36:58 by omimouni         ###   ########.fr       */
+/*   Updated: 2019/11/24 04:44:14 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	ft_read_buffer(int fd, char **ptr)
 			free(*ptr);
 			*ptr = tmp;
 		}
+		if (ft_strchr(*ptr, '\n'))
+			break ;
 	}
 	free(buffer);
 	return (n);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omimouni <omimouni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 17:48:55 by omimouni          #+#    #+#             */
-/*   Updated: 2019/11/15 10:00:16 by omimouni         ###   ########.fr       */
+/*   Updated: 2019/11/20 16:56:56 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,18 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
-	int		x;
 
-	x = -1;
 	i = 0;
-	while (s[i] != '\0')
+	while (s[i] != (unsigned char)c)
 	{
-		if (s[i] == (char)c)
-			x = i;
+		if (s[i] == '\0')
+			return (NULL);
 		i++;
 	}
-	if (c == '\0')
-		return ((char *)s + i);
-	if (x == -1)
-		return (NULL);
-	else
-		return ((char*)s + x);
+	return ((char *)(s + i));
 }
 
 char	*ft_strdup(const char *s1)

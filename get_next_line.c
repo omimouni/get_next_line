@@ -6,7 +6,7 @@
 /*   By: omimouni <omimouni@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 15:16:59 by omimouni          #+#    #+#             */
-/*   Updated: 2019/11/24 04:44:14 by omimouni         ###   ########.fr       */
+/*   Updated: 2019/11/27 14:38:13 by omimouni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int	ft_read_buffer(int fd, char **ptr)
 	char	*tmp;
 	int		n;
 
-	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!(buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1))))
+		return (-1);
 	while ((n = read(fd, buffer, BUFFER_SIZE)) > 0)
 	{
 		buffer[n] = '\0';
@@ -63,7 +64,6 @@ int	ft_set_line(char **ptr, int len, char **line)
 int	get_next_line(int fd, char **line)
 {
 	static char	*ptr[1024];
-	char		*tmp;
 	int			n;
 	int			len;
 
